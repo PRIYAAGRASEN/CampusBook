@@ -49,15 +49,17 @@ export default function Notifications() {
           {myNotifs.map((n, i) => (
             <div
               key={n.id}
-              className="card animate-fade-in-up flex items-center gap-lg"
+              className="card animate-fade-in-up flex items-start"
               style={{
+                gap: 'var(--space-md)',
+                flexWrap: 'wrap',
                 animationDelay: `${i * 0.03}s`,
                 borderColor: !n.read ? `color-mix(in srgb, ${getNotifColor(n.type)}, transparent 70%)` : undefined,
                 background: !n.read ? `color-mix(in srgb, ${getNotifColor(n.type)}, transparent 95%)` : undefined,
               }}
             >
-              <span style={{ fontSize: '24px' }}>{getNotifIcon(n.type)}</span>
-              <div style={{ flex: 1 }}>
+              <span style={{ fontSize: '24px', flexShrink: 0, marginTop: '2px' }}>{getNotifIcon(n.type)}</span>
+              <div style={{ flex: '1 1 200px' }}>
                 <div className="flex items-center gap-sm">
                   <h3 style={{ fontSize: 'var(--font-sm)', fontWeight: 700 }}>{n.title}</h3>
                   {!n.read && (
@@ -69,7 +71,7 @@ export default function Notifications() {
                 </p>
                 <span style={{ fontSize: '10px', color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>{n.createdAt}</span>
               </div>
-              <div className="flex items-center gap-sm">
+              <div className="flex items-center gap-sm" style={{ marginLeft: 'auto' }}>
                 {n.proposalId && (
                   <Link to={`/proposals/${n.proposalId}`} className="btn btn-secondary btn-sm">View</Link>
                 )}

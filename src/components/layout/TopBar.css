@@ -123,8 +123,19 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-xl);
   overflow: hidden;
-  animation: slideUp 0.2s ease;
+  animation: slideUp 0.15s ease;
   z-index: 200;
+}
+
+@media (max-width: 640px) {
+  .topbar-notif-panel {
+    position: fixed;
+    top: calc(var(--topbar-height) + 8px);
+    right: var(--space-md);
+    left: var(--space-md);
+    width: auto;
+    max-width: none;
+  }
 }
 
 .notif-panel-header {
